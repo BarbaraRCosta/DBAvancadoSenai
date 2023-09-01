@@ -1,1 +1,21 @@
-OIOI
+create table transmissoes(id_video int(11)not null, id_canal int (11)not null, titulo varchar(100) descricao text, duração int, data date, hora datetime, expectadores int); F.KEY(ID_CANAL)
+
+create table usuários(id_usuário int(11)not null, usuario varchar(50) unique not null, email varchar(255) unique not null, senha varchar(255)not null, PerfilImagemURL varchar(255), descricacao text, data_criacao datetime default current_timestamp);
+
+create table canal(id_canal int(11)not null, id_usuario int(11) not null, Nome_canal varchar(255), categoria varchar(50), descricao varchar(255), data_criacao datetime default current_timestamp, ID_seguidores int not null, programacao varchar(255), id_video not null, clipes int(11)); F.KEY(ID_USUARIO)
+
+create table comentarios(id_comentario int(11) auto_increment, 	id_usuario int not null, id_video int not null, comentario text, (nao sei oq colocar mais)); F.KEY(ID_USUARIO,ID_VIDEO)
+
+create table seguidores(id_seguidores int (11) auto_increment, id_usuario int not null, id_canal int not null, Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);	F.KEY(ID_USUARIO,ID_CANAL)
+
+create table assinaturas(id_assinatura int(11) auto_increment, id_usuario int not null, id_canal not null, data_inicio date, data_termino date, valor_inscricao int,(trigger de desconto na inscricao) saldo_bits int(11)not null) F.KEY(id_usuario, id_canal,id_carteira);
+
+tabela carteira_bits(id_carteira int(11)auto_increment, id_usuario int not null, saldo int(11))
+
+tabela pagamento(id_pag int(11)not null, id_usuario int not null, tipo_pagamento varchar(255) bits int(11)not null, inscricao int (11)not null, valor int(11)not null);
+
+CREATE TABLE AD(id_ad int(11)auto_increment, id_canal int not null, patrocinador varchar(255), quantidade_ad int(11)not null, tempo_de_tela datetime ); F.KEY(ID_CANAL)
+
+create table categoria(id_categoria int (11)auto_increment, categoria varchar(255),
+
+create table comunidades(id_comunidade, id_canal, nome_comunidade varchar(255), descrição text, id_seguidores int not null)
