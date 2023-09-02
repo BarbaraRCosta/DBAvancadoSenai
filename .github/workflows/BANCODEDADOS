@@ -49,3 +49,6 @@ from transmissoes where expectadores > 1000
 
 
 (trigger de desconto na inscricao)
+
+
+FOREIGN KEY (chave_tabela_atual) REFERENCES Tabela_primaria(Id_tabela_primaria)
