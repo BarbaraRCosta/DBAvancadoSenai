@@ -5,14 +5,17 @@ create table categoria_pagamento(
     categoria varchar(255)
 );
 
-create table usuários(
-    id_usuário int(11) PRIMARY key not null,
-    usuario varchar(50) unique not null,
-    email varchar(255) unique not null,
-    senha varchar(255)not null,
-    PerfilImagemURL varchar(255),
-    descricacao text, data_criacao datetime default current_timestamp
-);
+create table assinaturas(
+    id_assinatura int(11) auto_increment PRIMARY KEY NOT null,
+    id_usuario int (11) not null,
+    id_canal int (11) not null,
+    data_inicio date,
+    data_termino date,
+    valor_inscricao int,
+    saldo_bits int(11)not null)
+    FOREIGN KEY (id_usuario) REFERENCES usuario (PersonID)
+    (id_usuario, id_canal,id_carteira
+               );
 
 create table assinaturas(id_assinatura int(11) auto_increment, id_usuario int not null, id_canal not null, data_inicio date, data_termino date, valor_inscricao int,(trigger de desconto na inscricao) saldo_bits int(11)not null) F.KEY(id_usuario, id_canal,id_carteira);
 
