@@ -1,10 +1,27 @@
 tabela pagamento(id_pag int(11)not null, id_usuario int not null, tipo_pagamento varchar(255) bits int(11)not null, inscricao int (11)not null, valor int(11)not null);
 
+alter table pagamento 
+add primary key (id_pag);
+
 create table categoria(id_categoria int (11)auto_increment, categoria varchar(255),
+
+alter table categoria
+add primary key (id_categoria);
 
 create table usuários(id_usuário int(11)not null, usuario varchar(50) unique not null, email varchar(255) unique not null, senha varchar(255)not null, PerfilImagemURL varchar(255), descricacao text, data_criacao datetime default current_timestamp);
 
+alter table usuarios
+add primary key (id_usuario);
 create table assinaturas(id_assinatura int(11) auto_increment, id_usuario int not null, id_canal not null, data_inicio date, data_termino date, valor_inscricao int,(trigger de desconto na inscricao) saldo_bits int(11)not null) F.KEY(id_usuario, id_canal,id_carteira);
+
+alter table assinaturas
+add primary key(id_assinatura)
+
+add foreign key 
+ALTER TABLE "usuarios" ADD CONSTRAINT "fk_usuario" FOREIGN KEY (id_usuario) REFERENCES "usuarios" (id_usuario) ;
+ALTER TABLE "usuarios" ADD CONSTRAINT "fk_canal" FOREIGN KEY (id_canal) REFERENCES "canal" (id_canal) ;
+
+
 
 tabela carteira_bits(id_carteira int(11)auto_increment, id_usuario int not null, saldo int(11))
 
